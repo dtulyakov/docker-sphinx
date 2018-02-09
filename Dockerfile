@@ -1,7 +1,7 @@
 FROM python:3-alpine
 
 COPY requirements.txt /requirements.txt
-
+COPY run.sh /run.sh
 ENV LIBRARY_PATH=/lib:/usr/lib
 #PlantUML
 ENV PLANTUML_DIR /usr/local/plantuml
@@ -30,4 +30,4 @@ RUN set -x \
 
 WORKDIR /sphinx
 
-CMD ["/usr/local/bin/sphinx-build", "-b", "html", "/sphinx/source", "/sphinx/build"]
+CMD ["/run.sh"]
