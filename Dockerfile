@@ -28,6 +28,6 @@ RUN set -x \
   && apk del dependencies \
   && rm /var/cache/apk/*
 
-WORKDIR /sphinx
+WORKDIR /
 
 CMD ["/run.sh"]
