@@ -18,15 +18,10 @@ RUN set -x \
      freetype-dev \
      git \
   && apk --no-cache --virtual=dependencies add build-base python-dev py-pip wget \
-    #PlantUML
+  #PlantUML
   && mkdir $PLANTUML_DIR \
   && wget "https://sourceforge.net/projects/plantuml/files/plantuml.jar" --no-check-certificate \
   && mv plantuml.jar $PLANTUML_DIR \
-    #TakaoFont for Japanese
-  && wget "https://launchpad.net/takao-fonts/trunk/15.03/+download/TakaoFonts_00303.01.tar.xz" \
-  && tar xvf TakaoFonts_00303.01.tar.xz -C /usr/share/fonts/ \
-  && rm -f TakaoFonts_00303.01.tar.xz \
-  && ln -s /usr/share/fonts/TakaoFonts_00303.01 /usr/share/fonts/TakaoFonts \
   #Upgrade pip
   && pip install --upgrade pip \
   && pip install -r /requirements.txt \
